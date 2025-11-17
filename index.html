@@ -7,28 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>MENU</h2>
+            <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Bài Học</div>
+                <button class="tab-button active" onclick="switchTab(event, 'lesson8')"><span>Bài 8</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'lesson9')"><span>Bài 9</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'lesson10')"><span>Bài 10</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'lesson11')"><span>Bài 11</span></button>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Kanji</div>
+                <button class="tab-button" onclick="switchTab(event, 'kanji8')"><span>Kanji Bài 8</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'kanji9')"><span>Kanji Bài 9</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'kanji10')"><span>Kanji Bài 10</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'kanji11')"><span>Kanji Bài 11</span></button>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Bảng Chữ</div>
+                <button class="tab-button" onclick="switchTab(event, 'hiragana')"><span>Hiragana</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'katakana')"><span>Katakana</span></button>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Luyện Tập</div>
+                <button class="tab-button" onclick="switchTab(event, 'aireading')"><span>AI Đọc Hiểu</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'kanjitest')"><span>Test Kanji</span></button>
+                <button class="tab-button" onclick="switchTab(event, 'readingquiz')"><span>Quiz FE</span></button>
+            </div>
+            <div class="nav-section">
+                <button class="tab-button" onclick="switchTab(event, 'settings')"><span>Settings</span></button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
         <header>
             <h1>Ngữ Pháp Tiếng Nhật</h1>
             <p>Học ngữ pháp tiếng Nhật một cách dễ dàng và hiệu quả</p>
         </header>
 
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab(event, 'lesson8')"><span>Bài 8</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'lesson9')"><span>Bài 9</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'lesson10')"><span>Bài 10</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'lesson11')"><span>Bài 11</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'kanji8')"><span>Kanji Bài 8</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'kanji9')"><span>Kanji Bài 9</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'kanji10')"><span>Kanji Bài 10</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'kanji11')"><span>Kanji Bài 11</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'hiragana')"><span>Hiragana</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'katakana')"><span>Katakana</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'aireading')"><span>AI Đọc Hiểu</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'kanjitest')"><span>📝 Test Kanji</span></button>
-            <button class="tab-button" onclick="switchTab(event, 'settings')"><span>⚙️ Settings</span></button>
-        </div>
+        <div class="container">
 
         <!-- Bài 8 Content -->
         <div id="lesson8" class="tab-content active">
@@ -2637,19 +2668,19 @@
         <!-- AI Reading Panel -->
         <div id="aireading" class="tab-content">
             <div class="grammar-section">
-                <h2>🤖 AI Tạo Bài Đọc</h2>
+                <h2>AI Tạo Bài Đọc</h2>
                 
                 <div class="grammar-item">
-                    <div class="grammar-title">✨ Tạo Bài Đọc Tiếng Nhật với AI</div>
+                    <div class="grammar-title">Tạo Bài Đọc Tiếng Nhật với AI</div>
                     
                     <div class="ai-controls">
                         <button id="generateBtn" class="generate-btn" onclick="generateReading()">
-                            <span id="btnText">🎯 START - Tạo Bài Đọc</span>
+                            <span id="btnText">START - Tạo Bài Đọc</span>
                         </button>
                     </div>
 
                     <div class="note">
-                        <div class="note-title">📝 Hướng dẫn:</div>
+                        <div class="note-title">Hướng dẫn:</div>
                         <p>Nhấn nút START để AI tạo một bài đọc tiếng Nhật ngẫu nhiên</p>
                         <p>Bài đọc bao gồm: Kanji, Furigana và dịch tiếng Việt</p>
                     </div>
@@ -2657,10 +2688,10 @@
 
                 <div id="readingResult" class="reading-result" style="display: none;">
                     <div class="grammar-item">
-                        <div class="grammar-title">📖 Bài Đọc</div>
+                        <div class="grammar-title">Bài Đọc</div>
                         <div class="ai-controls">
                             <button id="romajiBtn" class="generate-btn" onclick="toggleRomaji()" style="background: #9966ff; font-size: 14px; padding: 10px 20px;">
-                                <span id="romajiBtnText">👁️ Hiện Furigana & Romaji</span>
+                                <span id="romajiBtnText">Hiện Furigana & Romaji</span>
                             </button>
                         </div>
                         <div id="readingContent" class="reading-content"></div>
@@ -2677,7 +2708,7 @@
         <!-- Kanji Test Panel -->
         <div id="kanjitest" class="tab-content">
             <div class="grammar-section">
-                <h2>📝 Kiểm Tra Kanji</h2>
+                <h2>Kiểm Tra Kanji</h2>
                 
                 <div class="grammar-item">
                     <div class="grammar-title">Chọn Bài Học</div>
@@ -2689,7 +2720,7 @@
                             <option value="11">Bài 11</option>
                         </select>
                         <button class="generate-btn" onclick="startKanjiTest()">
-                            <span>🎯 Bắt Đầu Test (5 từ)</span>
+                            <span>Bắt Đầu Test (5 từ)</span>
                         </button>
                     </div>
                 </div>
@@ -2709,8 +2740,75 @@
                     </div>
                     <div class="result-list" id="resultDetails"></div>
                     <button class="retry-button" onclick="startKanjiTest()">
-                        <span>🔄 Làm Lại</span>
+                        <span>Làm Lại</span>
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Quiz Panel -->
+        <div id="readingquiz" class="tab-content">
+            <div class="grammar-section">
+                <h2>Quiz Đọc Hiểu - Bài 8-11</h2>
+                
+                <div class="grammar-item">
+                    <div class="grammar-title">Bài Kiểm Tra FE-Style (42 câu)</div>
+                    <div class="note">
+                        <div class="note-title">Hướng dẫn:</div>
+                        <p>• Quiz kiểu thi FE của FPT University</p>
+                        <p>• 20 câu ngữ pháp + 18 câu từ vựng + 2 câu đọc hiểu</p>
+                        <p>• Mỗi câu có 4 đáp án, chỉ 1 đáp án đúng</p>
+                        <p>• Chọn "Generate AI Quiz" để tạo đề random, hoặc "Quiz Cố Định" để dùng đề có sẵn</p>
+                    </div>
+                    <div class="ai-controls">
+                        <button id="startQuizBtn" class="generate-button" onclick="generateAIQuiz()">
+                            <span>Generate AI Quiz (Random)</span>
+                        </button>
+                        <button class="generate-button" onclick="startReadingQuiz()" style="background: #4CAF50;">
+                            <span>Quiz Cố Định</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quizArea" class="quiz-area" style="display: none;">
+                    <div class="quiz-progress">
+                        <div class="progress-info">
+                            <span id="currentQuestion">Câu 1/42</span>
+                            <span id="quizScore">Điểm: 0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="reading-passage">
+                        <div class="passage-title">📖 Đoạn Văn</div>
+                        <div id="passageText" class="passage-content"></div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <div id="questionText" class="question-text"></div>
+                        <div id="quizOptions" class="quiz-options"></div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button id="submitAnswer" class="quiz-button" onclick="submitQuizAnswer()">Trả Lời</button>
+                        <button id="nextQuestion" class="quiz-button" onclick="nextQuizQuestion()" style="display: none;">Câu Tiếp →</button>
+                    </div>
+
+                    <div id="answerFeedback" class="answer-feedback" style="display: none;"></div>
+                </div>
+
+                <div id="quizResult" class="quiz-result" style="display: none;">
+                    <div class="result-header">
+                        <h3>🎉 Hoàn Thành Quiz!</h3>
+                        <div class="final-score">
+                            <span id="finalScore">0/42</span>
+                            <span id="finalPercentage">0%</span>
+                        </div>
+                    </div>
+                    <div class="result-details" id="resultDetails"></div>
+                    <button class="retry-button" onclick="startReadingQuiz()">Làm Lại Quiz</button>
                 </div>
             </div>
         </div>
@@ -2718,10 +2816,10 @@
         <!-- Settings Panel -->
         <div id="settings" class="tab-content">
             <div class="grammar-section">
-                <h2>⚙️ Cài Đặt</h2>
+                <h2>Cài Đặt</h2>
                 
                 <div class="grammar-item">
-                    <div class="grammar-title">🎵 Nhạc Nền</div>
+                    <div class="grammar-title">Nhạc Nền</div>
                     <div class="settings-control">
                         <label class="switch">
                             <input type="checkbox" id="bgMusicToggle" onchange="toggleMusic()">
@@ -2730,13 +2828,13 @@
                         <span class="setting-label" id="musicStatus">Tắt</span>
                     </div>
                     <div class="note">
-                        <div class="note-title">📝 Lưu ý:</div>
+                        <div class="note-title">Lưu ý:</div>
                         <p>Bật nhạc nền retro 8-bit để có trải nghiệm học tập thú vị hơn!</p>
                     </div>
                 </div>
 
                 <div class="grammar-item">
-                    <div class="grammar-title">🌙 Dark Mode</div>
+                    <div class="grammar-title">Dark Mode</div>
                     <div class="settings-control">
                         <label class="switch">
                             <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
@@ -2745,13 +2843,13 @@
                         <span class="setting-label" id="darkModeStatus">Tắt</span>
                     </div>
                     <div class="note">
-                        <div class="note-title">📝 Lưu ý:</div>
+                        <div class="note-title">Lưu ý:</div>
                         <p>Chế độ tối giúp bảo vệ mắt khi học ban đêm.</p>
                     </div>
                 </div>
 
                 <div class="grammar-item">
-                    <div class="grammar-title">💾 Về Trang Web</div>
+                    <div class="grammar-title">Về Trang Web</div>
                     <div class="example">
                         <div class="japanese-text">日本語文法学習サイト</div>
                         <div class="meaning">Trang học ngữ pháp tiếng Nhật</div>
@@ -2768,6 +2866,28 @@
         <footer>
             <p>© 2025 - Tài liệu học tiếng Nhật | Cập nhật thường xuyên</p>
         </footer>
+    </div>
+
+    <!-- Floating Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header" onclick="toggleChat()">
+            <span class="chat-title">Gemini AI</span>
+            <span class="chat-toggle" id="chatToggle">−</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot-message">
+                    <div class="message-content">Xin chào! Tôi là Gemini AI. Hỏi tôi bất cứ điều gì về tiếng Nhật!</div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Nhập câu hỏi..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button class="chat-send-btn" onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+        </div>
     </div>
 
     <audio id="bgMusic" loop>
